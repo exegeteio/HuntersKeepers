@@ -28,6 +28,9 @@ RUN bundle install --quiet -j4 --retry 3 \
     && find /usr/local/bundle/gems/ -name "*.c" -delete \
     && find /usr/local/bundle/gems/ -name "*.o" -delete
 
+# Tell Puma to to listen on all interfaces.
+ENV BINDING 0.0.0.0
+
 # This image is used to build assets and delete side effects.
 # This will **include** development and test gems.
 FROM rails-builder AS builder
