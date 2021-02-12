@@ -21,7 +21,7 @@
 	// "forwardPorts": [],
 
 	// Use 'postCreateCommand' to run commands after the container is created.
-	"postCreateCommand": "/bin/sh -c \"docker-compose pull && docker-compose build && docker-compose run --rm web bundle install && docker-compose run --rm web yarn install --check-files && docker-compose run --rm web bin/rails db:setup && docker-compose down\"",
+	"postCreateCommand": "/bin/sh -c \"docker-compose pull && docker-compose build && docker-compose run --rm web bundle install && docker-compose run --rm web yarn install --check-files && docker-compose run --rm web bin/rails db:setup db:seed && docker-compose down\"",
 
 	// Comment out connect as root instead. More info: https://aka.ms/vscode-remote/containers/non-root.
 	"remoteUser": "vscode"
