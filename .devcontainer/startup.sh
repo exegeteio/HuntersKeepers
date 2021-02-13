@@ -1,14 +1,7 @@
 #!/bin/sh
 
-# Add common utilities for development.
-apk add \
-	bash \
-	curl \
-	git \
-	nano \
-	openssh-client \
-	postgresql-client \
-	zsh 
+# Error out the whole script if anything fails.
+set -e verbose
 
 # Gems required for VS Code extensions.
 gem install solargraph rubocop

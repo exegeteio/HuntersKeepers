@@ -28,7 +28,26 @@ RUN bundle install --quiet -j4 --retry 3 \
     && find /usr/local/bundle/gems/ -name "*.c" -delete \
     && find /usr/local/bundle/gems/ -name "*.o" -delete
 
-# Tell Puma to to listen on all interfaces.
+# Devcontainer Image
+FROM rails-builder AS devcontainer
+
+# Add packages used in Development.
+RUN apk add --update --no-cache --quiet \
+    bash \
+    build-base \
+    curl \
+    docker \
+    git \
+    nano \
+    nodejs-current \
+    openssh-client \
+    postgresql-dev \
+    python2 \
+    tzdata \
+    yarn \
+    zsh
+
+# BINDING tells puma to listen on all IP addresses.
 ENV BINDING 0.0.0.0
 
 # This image is used to build assets and delete side effects.
