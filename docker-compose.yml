@@ -21,7 +21,7 @@ services:
       - WEBPACKER_DEV_SERVER_HOST=0.0.0.0
     command: ./bin/webpack-dev-server
     volumes:
-      - ./:/app/
+      - "${LOCAL_WORKSPACE_FOLDER:-.}/:/app/"
     ports:
       - "3035:3035"
 
@@ -42,7 +42,7 @@ services:
     ports:
       - "3000:3000"
     volumes:
-      - "./:/app/"
+      - "${LOCAL_WORKSPACE_FOLDER:-.}/:/app/"
     environment:
       - WEBPACKER_DEV_SERVER_HOST=webpacker
       - POSTGRES_USER=postgres

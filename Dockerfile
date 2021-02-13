@@ -28,6 +28,32 @@ RUN bundle install --quiet -j4 --retry 3 \
     && find /usr/local/bundle/gems/ -name "*.c" -delete \
     && find /usr/local/bundle/gems/ -name "*.o" -delete
 
+# Devcontainer Image
+FROM rails-builder AS devcontainer
+
+# Add packages used in Development.
+RUN apk add --update --no-cache --quiet \
+    bash \
+    build-base \
+    curl \
+    docker \
+    docker-compose \
+    git \
+    nano \
+    nodejs-current \
+    npm \
+    openssh-client \
+    postgresql-dev \
+    python2 \
+    tzdata \
+    yarn \
+    zsh \
+    # termd used for formatting the README.md when opening a terminal.
+    && npm install -qg termd
+
+# zsh environment file to show README when opening a terminal.
+COPY .devcontainer/zshenv /etc/zsh/
+
 # This image is used to build assets and delete side effects.
 # This will **include** development and test gems.
 FROM rails-builder AS builder

@@ -1,0 +1,3 @@
+# ZSH Environment Setup
+
+[ -f ".devcontainer/README.md" ] && termd .devcontainer/README.md
