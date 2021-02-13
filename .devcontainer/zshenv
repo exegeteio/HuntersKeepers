@@ -1,3 +1,10 @@
 # ZSH Environment Setup
 
 [ -f ".devcontainer/README.md" ] && termd .devcontainer/README.md
+
+alias rails="docker-compose exec web rails"
+alias rack="docker-compose exec web rack"
+alias rspec="docker-compose exec web rspec"
+alias bundle="docker-compose exec web bundle"
+alias yarn="docker-compose exec web yarn"
+alias psql="docker-compose exec db psql"
