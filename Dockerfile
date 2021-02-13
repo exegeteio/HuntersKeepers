@@ -40,12 +40,18 @@ RUN apk add --update --no-cache --quiet \
     git \
     nano \
     nodejs-current \
+    npm \
     openssh-client \
     postgresql-dev \
     python2 \
     tzdata \
     yarn \
-    zsh
+    zsh \
+    # termd used for formatting the README.md when opening a terminal.
+    && npm install -qg termd
+
+# zsh environment file to show README when opening a terminal.
+COPY .devcontainer/zshenv /etc/zsh/
 
 # BINDING tells puma to listen on all IP addresses.
 ENV BINDING 0.0.0.0

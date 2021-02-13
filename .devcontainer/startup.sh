@@ -13,4 +13,4 @@ bundle install -j4
 yarn install --check-files
 
 # Ensure the database is set up and running.
-bundle exec rails db:setup
+bundle exec rails db:setup db:seed

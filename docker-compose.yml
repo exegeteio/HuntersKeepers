@@ -20,6 +20,7 @@ services:
       - RAILS_ENV=development
       - WEBPACKER_DEV_SERVER_HOST=0.0.0.0
     command: ./bin/webpack-dev-server
+    restart: always
     volumes:
       - ./:/app/
     ports:
