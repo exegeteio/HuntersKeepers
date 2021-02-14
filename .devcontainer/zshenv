@@ -2,9 +2,10 @@
 
 [ -f ".devcontainer/README.md" ] && termd .devcontainer/README.md
 
-alias rails="docker-compose exec web rails"
-alias rack="docker-compose exec web rack"
-alias rspec="docker-compose exec web rspec"
 alias bundle="docker-compose exec web bundle"
-alias yarn="docker-compose exec web yarn"
 alias psql="docker-compose exec db psql"
+alias rack="docker-compose exec web rack"
+alias rails="docker-compose exec web rails"
+alias rspec="docker-compose exec web rspec"
+alias rubocop="docker-compose exec web rubocop"
+alias yarn="docker-compose exec web yarn"
